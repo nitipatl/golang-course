@@ -4,6 +4,8 @@
 
 หลักการของคำสั่งนี้คือมีการ compile จากนั้นไปเก็บไว้ที่ temp directory แล้วรันโปรแกรม
 
+package main ~> method main
+
 **Package**
 
 ```
@@ -54,6 +56,9 @@ fmt.Println("Hello world :)")
 
 `fmt` package called `Println` (that's the fmt.Println piece, `Println` means Print Line). Then we create a new string that contains Hello World and invoke (also known as call or execute) that function with the string as the first and only argument.
 
-
-
+**Document**
+```
+godoc fmt Println
+```
+`godoc` แสดงออกมาว่าใน package นั้นมี method อะไรให้ใช้บ้าง
 

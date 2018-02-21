@@ -2,8 +2,7 @@ package main
 
 import "fmt"
 
-// comment
-
 func main() {
-	fmt.Println("Hello world :)")
+	fmt.Println("1.0 + 1.5 =", 1.0+1.5)
+	fmt.Println("1 + 1 =", 1+1)
 }

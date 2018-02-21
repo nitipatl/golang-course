@@ -35,3 +35,12 @@ Hello World\`
 
 3. Boolean  
 named after [George Boole](https://en.wikipedia.org/wiki/George_Boole)  
+
+**Problems**
+1. How are integers stored on acomputer?  
+	binary digit  
+2. what's the largest 8 digit number?  
+	2^8 - 1 = 255  
+3. 3-problem.go
+4. What is a string? How do you find its length?  
+	array of a bytes, len

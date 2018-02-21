@@ -1,64 +1,34 @@
-**How to run?**
+**Type VS Token**
 
-`go run main.go` 
+*Example*  
+Max = name of Dog  
+Max = Token (a particular instance or member)  
+Dog = Type (the general concept)   
+All dogs have 4 legs, Max is a dog, therefore Max has 4 legs.  
+~> All strings have a length, x is a string, therefore x has a length.  
 
-หลักการของคำสั่งนี้คือมีการ compile จากนั้นไปเก็บไว้ที่ temp directory แล้วรันโปรแกรม
+mathematics -> sets  
+R (the set of all real numbers) or N (the set of all natural numbers)  
+Each member of these sets shares properties with all the other members of the set.  
+*“for all natural numbers a, b, and c, a + (b + c) = (a + b) + c and a × (b × c) = (a × b) × c.”*   
 
-package main ~> method main
+**Types**
 
-**Package**
+1. Numbers  
+1.1. Integer  
+	Integers – like their mathematical counterpart – are numbers without a decimal component. (..., -3, -2, -1, 0, 1, ...) Unlike the base-10 decimal system we use to represent numbers, computers use a base-2 binary system uint8, uint16, uint32, uint64, int8, int16, int32 and int64. 8, 16, 32 and 64 tell us how many bits each of the types use. uint means “unsigned integer” while int means “signed integer”.  
+	byte = unit8   
+	rune = int32  
+	There are also 3 machine de- pendent integer types: uint, int and uintptr.  
+	Go's byte data type is often used in the definition of other types. There are also 3 machine de- pendent integer types: uint, int and uintptr.  
+1.2. Float  
+	computing 1.01 - 0.99 results in 0.020000000000000018 – A number extremely close to what we would expect, but not exactly the same.  
+	Like integers floating point numbers have a cer- tain size (32 bit or 64 bit). Using a larger sized floating point number increases it's precision. (how many digits it can represent)  
+	In addition to numbers there are several other values which can be represented: “not a number” (NaN, for things like 0/0) and positive and negative infinity. (+∞ and −∞) 
+	float32 / float64 -> complex numbers (numbers with imaginary parts): complex64 and complex128  
 
-```
-package main
-```
-
-เรียกว่า package declaration ทุกการเขียนจะต้องมีการประกาศตัวนี้ เป็นการทำให้สามารถ organizing และ reusing code ในภาษา go
-
-รูปแบบโปรแกรมของ Go มี 2 ประเภท
-1. executables โปรแกรมที่เราสามารถรันได้จาก command ถ้าใน Windows คือ .exe นั่นเอง
-2. libraries เป็นการเขียนโปรแกรมที่เรานำมาทำเป็น package ไว้ เพื่อให้ตอนที่เราเขียนโปรแกรมอื่นๆ มาเรียกใช้งานต่อได้
-
-* White space = Newlines, spaces and tabs (because you can't see them)
-
-**Import**
-```
-import "fmt"
-```
-
-`import` เป็นคำสั่งที่ทำให้เราสามารถนำเอา code จาก package อื่น มาใช้ที่นี้ จากตัวอย่างคือ fmt package (shorthand for format)
-
-" = double quotes (string literal ซึ่งคือ type ของ expression) 
-
-strings = a sequence of characters (letters, numbers, symbols, ...) of a definite length.
-
-* The " character itself is not part of the string
-
-**Comment**
-
-`//` is known as a comment. Comments are ignored by the Go compiler and are there for your own sake (or whoever picks up the source code for your program).
-
-Go supports two diffent styles of comments: `//` comments in which all the text between the `//` and the end of the line is part of the comment and `/* */` comments where everything between the `*`s is part of the comment. (And may include multiple lines)
-
-**Function declaration**
-```go
-func main() {
-	fmt.Println("Hello world :)")
-}
-```
-`func functionName` 
-
-The name `main` is special because it's the function that gets called when you execute the program.
-
-**Body**
-```
-fmt.Println("Hello world :)")
-```
-
-`fmt` package called `Println` (that's the fmt.Println piece, `Println` means Print Line). Then we create a new string that contains Hello World and invoke (also known as call or execute) that function with the string as the first and only argument.
-
-**Document**
-```
-godoc fmt Println
-```
-`godoc` แสดงออกมาว่าใน package นั้นมี method อะไรให้ใช้บ้าง
-
+2. String  
+"Hello world"  
+\`Hello World  
+new line  
+Hello World\` 

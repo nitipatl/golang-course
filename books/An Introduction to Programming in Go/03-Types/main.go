@@ -12,4 +12,11 @@ func main() {
 	fmt.Println(len("Hello World")) // A space is also considered a character
 	fmt.Println("Hello World"[1])   // represent to a byte
 	fmt.Println("Hello " + "World") // string will be concat not addition
+
+	// Boolean
+	fmt.Println(true && true)
+	fmt.Println(true && false)
+	fmt.Println(true || true)
+	fmt.Println(true || false)
+	fmt.Println(!true)
 }

@@ -32,3 +32,6 @@ Each member of these sets shares properties with all the other members of the se
 \`Hello World  
 new line  
 Hello World\` 
+
+3. Boolean  
+named after [George Boole](https://en.wikipedia.org/wiki/George_Boole)  

@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 type Shape interface {
 	perimeter() float64
@@ -25,7 +28,7 @@ type Rectangle struct {
 }
 
 func (c *Circle) perimeter() float64 {
-	return 2 * 3.14 * c.r
+	return 2 * math.Pi * c.r
 }
 
 func (r *Rectangle) perimeter() float64 {

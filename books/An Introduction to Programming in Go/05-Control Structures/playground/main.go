@@ -23,11 +23,23 @@ func main() {
 	// 	i++
 	// }
 	for i := 1; i <= 10; i++ {
-		fmt.Print(i)
-		if i%2 == 0 {
-			fmt.Println(" Odd")
-		} else {
-			fmt.Println(" Even")
+		// fmt.Print(i)
+		// if i%2 == 0 {
+		// 	fmt.Println(" Odd")
+		// } else {
+		// 	fmt.Println(" Even")
+		// }
+		switch i {
+		case 1:
+			fmt.Println("one")
+		case 2:
+			fmt.Println("two")
+		case 3:
+			fmt.Println("three")
+		case 4:
+			fmt.Println("four")
+		default:
+			fmt.Println("No number")
 		}
 	}
 }

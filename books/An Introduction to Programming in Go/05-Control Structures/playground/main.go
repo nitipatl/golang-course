@@ -23,6 +23,11 @@ func main() {
 	// 	i++
 	// }
 	for i := 1; i <= 10; i++ {
-		fmt.Println(i)
+		fmt.Print(i)
+		if i%2 == 0 {
+			fmt.Println(" Odd")
+		} else {
+			fmt.Println(" Even")
+		}
 	}
 }

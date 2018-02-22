@@ -19,5 +19,5 @@ func main() {
 	for i := 0; i < 5; i++ {
 		total += x[i]
 	}
-	fmt.Println(total / 5)
+	fmt.Println(total / float64(len(x)))
 }

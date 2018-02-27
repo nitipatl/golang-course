@@ -11,6 +11,12 @@ var coinValues = map[string]int{
 	"O":  1,
 }
 
+var drickPrices = map[string]int{
+	"SD": 18, // soft drink
+	"CF": 12, // canned coffee
+	"DW": 7,  // drinking water
+}
+
 type Wallet struct {
 	total int
 }
@@ -33,4 +39,5 @@ func main() {
 	_wallet.addCoin("TW")
 
 	fmt.Println("Currently inserted money:", _wallet.getTotal())
+
 }

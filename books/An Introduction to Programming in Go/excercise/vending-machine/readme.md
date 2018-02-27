@@ -26,3 +26,6 @@ Insert: T, T
 Currently inserted money: 20  
 Choose: Select CC  
 Return: F, TW, O  
+
+# Problems  
+- [Iteration order problem](https://blog.golang.org/go-maps-in-action)

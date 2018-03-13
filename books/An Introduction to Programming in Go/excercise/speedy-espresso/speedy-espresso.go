@@ -5,29 +5,37 @@ import (
 	"time"
 )
 
-func order(volumn int) (container []string) {
+func brewCoffee(c chan<- string, i int) {
+	// cashier receive order
+	time.Sleep(5 * time.Millisecond)
+	coffee := fmt.Sprintf("order: %d", i)
+
+	// barista brew coffee
+	time.Sleep(100 * time.Millisecond)
+	coffee = fmt.Sprintf("%s %s", coffee, "espresso")
+	c <- coffee
+}
+func serveCoffee(c <-chan string, volumn int, finised chan<- bool) {
 	for i := 1; i <= volumn; i++ {
-		// cashier receive order
+		coffee := <-c
 		time.Sleep(5 * time.Millisecond)
-		coffee := fmt.Sprintf("order: %d", i)
-
-		// barista brew coffee
-		time.Sleep(100 * time.Millisecond)
-		coffee = fmt.Sprintf("%s %s", coffee, "espresso")
-
-		// waiter serve coffee
-		time.Sleep(5 * time.Millisecond)
-		container = append(container, fmt.Sprintf("%s %s", coffee, "ready :)"))
+		fmt.Println(coffee, "ready :)")
 	}
-	return
+	finised <- true
+}
+func order(volumn int, finised chan bool) {
+	c := make(chan string)
+	go serveCoffee(c, volumn, finised)
+	for i := 1; i <= volumn; i++ {
+		go brewCoffee(c, i)
+	}
 }
 func main() {
+	finised := make(chan bool)
 	volumn := 10
 	start := time.Now()
-	container := order(volumn)
-	for _, cup := range container {
-		fmt.Println(cup)
-	}
+	order(volumn, finised)
+	<-finised
 	end := time.Now()
 	fmt.Println(end.Sub(start))
 }

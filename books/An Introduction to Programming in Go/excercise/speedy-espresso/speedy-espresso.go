@@ -12,30 +12,31 @@ func brewCoffee(c chan<- string, i int) {
 
 	// barista brew coffee
 	time.Sleep(100 * time.Millisecond)
-	coffee = fmt.Sprintf("%s %s", coffee, "espresso")
-	c <- coffee
+	c <- fmt.Sprintf("%s %s", coffee, "espresso")
 }
-func serveCoffee(c <-chan string, volumn int, finised chan<- bool) {
+func serveCoffee(c <-chan string, volumn int) (container []string) {
 	for i := 1; i <= volumn; i++ {
 		coffee := <-c
 		time.Sleep(5 * time.Millisecond)
-		fmt.Println(coffee, "ready :)")
+		container = append(container, fmt.Sprintf("%s %s", coffee, "ready :)"))
 	}
-	finised <- true
+	return
 }
-func order(volumn int, finised chan bool) {
+func order(volumn int) (container []string) {
 	c := make(chan string)
-	go serveCoffee(c, volumn, finised)
 	for i := 1; i <= volumn; i++ {
 		go brewCoffee(c, i)
 	}
+	container = serveCoffee(c, volumn)
+	return
 }
 func main() {
-	finised := make(chan bool)
-	volumn := 10
+	volumn := 200
 	start := time.Now()
-	order(volumn, finised)
-	<-finised
+	container := order(volumn)
+	for _, cup := range container {
+		fmt.Println(cup)
+	}
 	end := time.Now()
 	fmt.Println(end.Sub(start))
 }

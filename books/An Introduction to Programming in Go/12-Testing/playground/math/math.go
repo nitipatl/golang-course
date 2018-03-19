@@ -17,3 +17,13 @@ func Max(xs []float64) (max float64) {
 	}
 	return
 }
+
+func Min(xs []float64) (min float64) {
+	min = 9999
+	for _, x := range xs {
+		if x < min {
+			min = x
+		}
+	}
+	return
+}

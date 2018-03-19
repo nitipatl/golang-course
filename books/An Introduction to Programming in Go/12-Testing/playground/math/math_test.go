@@ -24,6 +24,17 @@ var maxtests = []maxtestpair{
 	{[]float64{-1, 1, 3}, 3},
 }
 
+type mintestpair struct {
+	values []float64
+	min    float64
+}
+
+var mintests = []mintestpair{
+	{[]float64{1, 2}, 1},
+	{[]float64{1, 1, 1, 1, 1, 1}, 1},
+	{[]float64{-1, 1, 3}, -1},
+}
+
 func TestAverage(t *testing.T) {
 	for _, pair := range tests {
 		v := Average(pair.values)
@@ -43,6 +54,18 @@ func TestMax(t *testing.T) {
 			t.Error(
 				"For", pair.values,
 				"expected", pair.max,
+				"got", v)
+		}
+	}
+}
+
+func TestMin(t *testing.T) {
+	for _, pair := range mintests {
+		v := Min(pair.values)
+		if v != pair.min {
+			t.Error(
+				"For", pair.values,
+				"expected", pair.min,
 				"got", v)
 		}
 	}

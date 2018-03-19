@@ -25,6 +25,9 @@ func serveCoffee(c <-chan string, volumn int) (container []string) {
 func order(volumn int) (container []string) {
 	c := make(chan string)
 	for i := 1; i <= volumn; i++ {
+		// go func(c chan string) {
+		// 	c <- "OK"
+		// }(c)
 		go brewCoffee(c, i)
 	}
 	container = serveCoffee(c, volumn)

@@ -7,6 +7,7 @@ import (
 	"./controllers"
 	"./middlewares"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 func NewRouter() http.Handler {
@@ -21,5 +22,6 @@ func main() {
 	var port string
 	flag.StringVar(&port, "port", ":3000", "default port=:3000")
 	flag.Parse()
-	http.ListenAndServe(port, NewRouter())
+	handler := cors.Default().Handler(NewRouter())
+	http.ListenAndServe(port, handler)
 }
